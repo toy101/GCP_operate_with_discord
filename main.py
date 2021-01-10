@@ -1,3 +1,5 @@
+# coding: UTF-8
+
 import discord
 from discord.ext import commands
 import os, traceback, subprocess
@@ -28,15 +30,33 @@ except:
 
 # サーバー起動処理
 def server_start():
-    command = f'/snap/bin/gcloud --account={SERVICE_ACCOUNT_ID} compute instances start {MINECRAFT_INSTANCE_NAME} --project {GCP_PROJECT_NAME} --zone {MINECRAFT_INSTANCE_ZONE}'
-    subprocess.call(command.split())
+    # command = f'/snap/bin/gcloud --account={SERVICE_ACCOUNT_ID} compute instances start {MINECRAFT_INSTANCE_NAME} --project {GCP_PROJECT_NAME} --zone {MINECRAFT_INSTANCE_ZONE}'
+    # subprocess.call(command.split())
+    subprocess.call(
+        [
+            '/snap/bin/gcloud',
+            '--account={}'.format(SERVICE_ACCOUNT_ID),
+            'compute', 'instances', 'start', MINECRAFT_INSTANCE_NAME,
+            '--project', GCP_PROJECT_NAME,
+            '--zone', MINECRAFT_INSTANCE_ZONE,
+        ]
+    )
     return
 
 
 # サーバー停止処理
 def server_stop():
-    command = f'/snap/bin/gcloud --account={SERVICE_ACCOUNT_ID} compute instances stop {MINECRAFT_INSTANCE_NAME} --project {GCP_PROJECT_NAME} --zone {MINECRAFT_INSTANCE_ZONE}'
-    subprocess.call(command.split())
+    # command = f'/snap/bin/gcloud --account={SERVICE_ACCOUNT_ID} compute instances stop {MINECRAFT_INSTANCE_NAME} --project {GCP_PROJECT_NAME} --zone {MINECRAFT_INSTANCE_ZONE}'
+    # subprocess.call(command.split())
+    subprocess.call(
+        [
+            '/snap/bin/gcloud',
+            '--account={}'.format(SERVICE_ACCOUNT_ID),
+            'compute', 'instances', 'start', MINECRAFT_INSTANCE_NAME,
+            '--project', GCP_PROJECT_NAME,
+            '--zone', MINECRAFT_INSTANCE_ZONE,
+        ]
+    )
     return
 
 
