@@ -52,7 +52,7 @@ async def ping(ctx):
     await ctx.send('pong')
 
 
-@bot.command(aliases=["boot", "start"])
+@bot.command(aliases=["start"])
 async def boot(ctx):
     await ctx.send("サーバーを起動します")
     server_start()
@@ -60,7 +60,7 @@ async def boot(ctx):
     await ctx.send("サーバーが起動しました！良き冒険を！")
 
 
-@bot.command(aliases=["shutdown", "stop"])
+@bot.command(aliases=["stop"])
 async def shutdown(ctx):
     await ctx.send("サーバーを停止します")
     server_stop()
