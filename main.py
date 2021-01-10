@@ -1,5 +1,3 @@
-# coding: UTF-8
-
 import discord
 from discord.ext import commands
 import os, traceback, subprocess
@@ -28,7 +26,7 @@ except:
     MINECRAFT_INSTANCE_ZONE = os.environ['MINECRAFT_INSTANCE_ZONE']
 
 
-# サーバー起動処理
+# Server Instance
 def server_start():
     # command = f'/snap/bin/gcloud --account={SERVICE_ACCOUNT_ID} compute instances start {MINECRAFT_INSTANCE_NAME} --project {GCP_PROJECT_NAME} --zone {MINECRAFT_INSTANCE_ZONE}'
     # subprocess.call(command.split())
@@ -44,7 +42,7 @@ def server_start():
     return
 
 
-# サーバー停止処理
+# Stop Server Instance
 def server_stop():
     # command = f'/snap/bin/gcloud --account={SERVICE_ACCOUNT_ID} compute instances stop {MINECRAFT_INSTANCE_NAME} --project {GCP_PROJECT_NAME} --zone {MINECRAFT_INSTANCE_ZONE}'
     # subprocess.call(command.split())
@@ -60,7 +58,7 @@ def server_stop():
     return
 
 
-# Bot起動時に動作する処理
+# Bot logging
 @bot.event
 async def on_ready():
     print('Logged in as {0} ({0.id})'.format(bot.user))
